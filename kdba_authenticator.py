@@ -15,7 +15,7 @@ class KDBAuthenticator(LDAPAuthenticator):
 """
     @gen.coroutine
     def authenticate(self, handler, data):
-        ans = super().authenticate(handler, data)
+        ans = yield super().authenticate(handler, data)
         if ans is not None:
             try:
                 user = data.get('username', 'None').lower()
